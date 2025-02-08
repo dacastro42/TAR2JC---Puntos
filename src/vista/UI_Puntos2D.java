@@ -4,17 +4,22 @@
  */
 package vista;
 
+import java.util.LinkedList;
+import modelo.Punto;
+
 /**
  *
  * @author David Castro
  */
 public class UI_Puntos2D extends javax.swing.JFrame {
 
+    LinkedList<Punto> listaP;
     /**
      * Creates new form UI_Puntos2D
      */
     public UI_Puntos2D() {
         initComponents();
+        listaP=new LinkedList<>();
     }
 
     /**
@@ -26,21 +31,48 @@ public class UI_Puntos2D extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        canvas1 = new java.awt.Canvas();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        canvas1.setBackground(new java.awt.Color(255, 204, 51));
+        canvas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                canvas1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void canvas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseClicked
+        double X=evt.getX();
+        double Y=evt.getY();
+        
+        Punto punto2D=new Punto(X, Y);
+        listaP.add(punto2D);
+        
+        for (Punto punto : listaP) {
+            System.out.println("los puntos "+punto.toString());
+        }
+    }//GEN-LAST:event_canvas1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +110,6 @@ public class UI_Puntos2D extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Canvas canvas1;
     // End of variables declaration//GEN-END:variables
 }
