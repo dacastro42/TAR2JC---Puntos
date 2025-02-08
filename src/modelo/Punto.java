@@ -14,6 +14,13 @@ public class Punto {
     public double X;
     public double Y;
     
+     public Punto() {
+    }
+
+    public Punto(double X, double Y) {
+        this.X = X;
+        this.Y = Y;
+    }
 
     /**
      * Get the value of Y
@@ -51,13 +58,7 @@ public class Punto {
         this.X = X;
     }
 
-    public Punto() {
-    }
-
-    public Punto(double X, double Y) {
-        this.X = X;
-        this.Y = Y;
-    }
+   
 
     @Override
     public String toString() {
